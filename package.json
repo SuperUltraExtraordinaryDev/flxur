@@ -2,7 +2,7 @@
     "name": "fluxr",
     "version": "0.0.1",
     "description": "",
-    "author": "TheDodd",
+    "author": "Anthony Dodd",
     "license": "MIT",
     "homepage": "",
     "repository": {
@@ -14,7 +14,7 @@
     },
     "keywords": [
         "Flux",
-        "ReactJS"
+        "React"
     ],
     "main": "src/js/main.js",
     "scripts": {
