@@ -1,0 +1,116 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+<META HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT">
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- This webpage was adapted from Pure CSS. http://purecss.io/ Copyright � 2013 Yahoo! Inc. All rights reserved. 
+
+Redistribution and use of this software in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+    Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+    Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+    Neither the name of Yahoo! Inc. nor the names of YUI's contributors may be used to endorse or promote products derived from this software without specific prior written permission of Yahoo! Inc.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Capital Metro Wifi log-in page">
+
+
+    <title>Capital Metro Wireless</title>
+
+
+<!-- <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css"> -->
+
+
+<link rel="stylesheet" href="/webportal/marketing.css">
+
+<!--[if gt IE 7]>
+	<link rel="stylesheet" type="text/css" href="/webportal/ie8-and-up.css" />
+<![endif]-->
+
+<!--[if gte IE 8]>
+	<link rel="stylesheet" type="text/css" href="/webportal/ie8-and-up.css" />
+<![endif]-->
+
+</head>
+<body>
+
+<div class="content">
+
+    <div class="splash">
+        <div class="pure-g-r">
+            <div class="pure-u-1-3">
+                <div class="l-box splash-image">
+                    <img src="/webportal/main-image.jpg" alt="Capital Metro logo" width="300" height="200">
+                </div>
+            </div>
+
+            <div class="pure-u-2-3">
+
+                <div class="l-box splash-text">
+                
+                    <h1 class="splash-head">
+                    <img src="/webportal/Cap-Metro-logo-125x100.png" alt="Capital Metro logo" width="125" height="100">
+                    <br>
+                    Capital Metro Wireless Internet
+                    </h1>
+
+                    <h2>
+ 					Please read and accept the following terms and conditions 
+                    </h2>
+                    <p>
+  					Please direct comments or questions to <a href ="mailto:customer.service@capmetro.org">customer.service@capmetro.org</a>
+                    </p>
+                    <p>
+                    <h2>Terms of Internet Service Use</h2>
+
+						<p>
+                    Wi-fi Security and Privacy: Capital Metro Wi-FI is shared among all users on your vehicle and does not provide a secure private internet connection. NO ENCRYPTION OR OTHER DATA SECURITY IS PROVIDED. Use of the Capital Metro Wi-Fi is at your own risk.
+                    </p>
+                    
+                    <p>
+                    By Clicking "Go" below or by navigating my browser away from this page, I have read/understood and agree to the previously stated Wi-Fi service information. I do not hold the agency liable for theft of personal or financial information obtained illegally while using the onboard Wi-Fi service.
+                    </p>
+
+						<p>
+                      Capital Metro provides free wifi service for our customers as an amenity to provide the best possible riding experience. However, there are limitations to the technology available for the transit industry. You may experience performance issues, particularly in low coverage areas or during peak usage periods.
+                      </p>
+                        
+
+                    
+                    	<a id="loginlink" class="pure-button primary-button" href="/index.jsp?accepted=yes">Go
+						<script>
+						document.getElementById('loginlink').href = "/index.jsp?accepted=yes&url=http://www.capmetro.org/";
+						</script>
+						</a>
+                    </p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>
+
+

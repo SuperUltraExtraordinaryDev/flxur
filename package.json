@@ -1,0 +1,36 @@
+{
+    "name": "Flux-React-Cart",
+    "version": "0.0.1",
+    "description": "",
+    "author": "TheDodd",
+    "license": "MIT",
+    "homepage": "",
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "bugs": {
+        "url": ""
+    },
+    "keywords": [
+        "Flux",
+        "ReactJS"
+    ],
+    "main": "src/js/main.js",
+    "scripts": {
+        "start": "node src/js/main.js"
+    },
+    "dependencies": {
+        "envify": "1.2.1",
+        "es6-promise": "1.0.0",
+        "gulp": "^3.8.10",
+        "gulp-browserify": "^0.5.0",
+        "gulp-concat": "^2.4.1",
+        "react": "0.10.0",
+        "react-tools": "0.10.0",
+        "reactify": "0.13.1"
+    },
+    "jest": {
+        "rootDir": "src/js"
+    }
+}
