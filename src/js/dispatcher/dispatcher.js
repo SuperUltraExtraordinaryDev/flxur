@@ -1,10 +1,9 @@
 /** @jsx React.DOM */
-var _Dispatcher = require('./_dispatcher.js');
-var merge = require('react/lib/merge');
+var FluxDispatcher = require('flux').Dispatcher;
+var assign = require('object-assign');
 
-var Dispatcher = merge(_Dispatcher.prototype, {
+var Dispatcher = assign(new FluxDispatcher(), {
     handleViewAction: function(action) {
-        console.log('action', action);
         this.dispatch({
             source: 'VIEW_ACTION',
             action: action
