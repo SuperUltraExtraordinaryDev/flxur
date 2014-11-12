@@ -4,14 +4,14 @@ var Store = require('../stores/store.js');
 var AddToCart = require('./addtocart.js');
 
 /**
- * ...
+ * A wrapper function to serialize data as needed.
  */
 function getCatalog() {
     return {items: Store.getCatalog()};
 }
 
 /**
- * ...
+ * Catalog component.
  */
 var Catalog = React.createClass({
     getInitialState: function() {

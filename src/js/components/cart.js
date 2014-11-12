@@ -6,14 +6,14 @@ var Increase = require('./increase.js');
 var Decrease = require('./decrease.js');
 
 /**
- * ...
+ * A wrapper around the Store.getCart method to serialize the data as needed.
  */
 function cartItems() {
     return {items: Store.getCart()};
 }
 
 /**
- * ...
+ * Shopping cart component.
  */
 var Cart = React.createClass({
     getInitialState: function() {
@@ -27,17 +27,17 @@ var Cart = React.createClass({
     },
     render: function() {
         var total = 0;
-        var items = this.state.items.map(function(item, i) {
+        var items = this.state.items.map(function(item, index) {
             var subtotal = item.cost * item.qty;
             total += subtotal;
             return (
-                <tr key={i}>
-                    <td><RemoveFromCart index={i}/></td>
+                <tr key={index}>
+                    <td><RemoveFromCart index={index}/></td>
                     <td>{item.title}</td>
                     <td>{item.qty}</td>
                     <td>
-                        <Increase index={i}/>
-                        <Decrease index={i}/>
+                        <Increase index={index}/>
+                        <Decrease index={index}/>
                     </td>
                     <td>${subtotal}</td>
                 </tr>

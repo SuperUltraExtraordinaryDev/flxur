@@ -68,46 +68,55 @@ function _addItem(item) {
 }
 
 /**
- * ...
+ * Stores encapsulate API functionality and register callbacks with the
+ * dispatcher. The callback will recieve a payload from the dispatcher and
+ * execute based upon the payload.
+ *
+ * Components register callbacks with stores as emmisions listeners. When an
+ * emmission is generated, component callbacks will be invoked.
  */
 var Store = merge(EventEmitter.prototype, {
     /**
-     * ...
+     * Emit the CHANGE_EVENT which will trigger any component callbacks
+     * registered with this store.
      */
     emitChange: function() {
         this.emit(CHANGE_EVENT);
     },
 
     /**
-     * ...
+     * Register a callback to be invoked upon CHANGE_EVENT emmisions.
      */
     addChangeListener: function(callback) {
         this.on(CHANGE_EVENT, callback);
     },
 
     /**
-     * ...
+     * Remove a callback.
      */
     removeChangeListener: function(callback) {
         this.removeListener(CHANGE_EVENT, callback);
     },
 
     /**
-     * ...
+     * Get items in cart. This would typically fetch data from a database.
      */
     getCart: function() {
         return _cartItems;
     },
 
     /**
-     * ...
+     * Get catalog items. This would typically fetch data from a database.
      */
     getCatalog: function() {
         return _catalog;
     },
 
     /**
-     * ...
+     * Register a callback with the dispatcher which will recieve a payload
+     * from the dispatcher. The callback will execute according to the payload.
+     * The dispatcher's register method will return the index of the callback in
+     * the dispatcher's list of callbacks.
      */
     dispatcherIndex: Dispatcher.register(function(payload) {
         var action = payload.action;

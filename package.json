@@ -1,16 +1,16 @@
 {
     "name": "fluxr",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "description": "",
     "author": "Anthony Dodd",
     "license": "MIT",
     "homepage": "",
     "repository": {
         "type": "git",
-        "url": ""
+        "url": "https://github.com/TheDodd/fluxr"
     },
     "bugs": {
-        "url": ""
+        "url": "https://github.com/TheDodd/fluxr/issues"
     },
     "keywords": [
         "Flux",
