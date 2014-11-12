@@ -1,6 +1,6 @@
-var Dispatcher = require('../dispatcher/dispatcher.js');
+var assign = require('object-assign');
 var Constants = require('../constants/constants.js');
-var merge = require('react/lib/merge');
+var Dispatcher = require('../dispatcher/dispatcher.js');
 var EventEmitter = require('events').EventEmitter;
 
 /**
@@ -75,7 +75,7 @@ function _addItem(item) {
  * Components register callbacks with stores as emmisions listeners. When an
  * emmission is generated, component callbacks will be invoked.
  */
-var Store = merge(EventEmitter.prototype, {
+var Store = assign(new EventEmitter(), {
     /**
      * Emit the CHANGE_EVENT which will trigger any component callbacks
      * registered with this store.
