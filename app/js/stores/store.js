@@ -4,18 +4,14 @@ var Dispatcher = require('../dispatcher/dispatcher.js');
 var EventEmitter = require('events').EventEmitter;
 
 /**
- * The event code which is to be emitted on change.
- */
-var CHANGE_EVENT = 'change';
-
-/**
  * Don't have a database set up yet ... so here we go.
  */
 var _catalog = [
-    {id: 1, title: 'Widget #1', cost:1},
-    {id: 2, title: 'Widget #2', cost:2},
-    {id: 3, title: 'Widget #3', cost:3}
+    {id: 1, title: 'Widget #1', cost: 1},
+    {id: 2, title: 'Widget #2', cost: 2},
+    {id: 3, title: 'Widget #3', cost: 3}
 ];
+// var _catalog = Catalog.CatalogItem.find();
 
 /**
  * An array of all items currently in the cart.
@@ -54,8 +50,8 @@ function _decreaseItem(index) {
  */
 function _addItem(item) {
     if (!item.inCart) {
-        item['qty'] = 1;
-        item['inCart'] = true;
+        item.qty = 1;
+        item.inCart = true;
         _cartItems.push(item);
     }
     else {
@@ -81,21 +77,21 @@ var Store = assign(new EventEmitter(), {
      * registered with this store.
      */
     emitChange: function() {
-        this.emit(CHANGE_EVENT);
+        this.emit(Constants.CHANGE_EVENT);
     },
 
     /**
      * Register a callback to be invoked upon CHANGE_EVENT emmisions.
      */
     addChangeListener: function(callback) {
-        this.on(CHANGE_EVENT, callback);
+        this.on(Constants.CHANGE_EVENT, callback);
     },
 
     /**
      * Remove a callback.
      */
     removeChangeListener: function(callback) {
-        this.removeListener(CHANGE_EVENT, callback);
+        this.removeListener(Constants.CHANGE_EVENT, callback);
     },
 
     /**
@@ -140,6 +136,6 @@ var Store = assign(new EventEmitter(), {
         Store.emitChange();
         return true;
     })
-})
+});
 
 module.exports = Store;

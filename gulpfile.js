@@ -8,13 +8,15 @@ var gulp = require('gulp');
 var uglify = require('gulp-uglify');
 
 // Define 'clean' task.
-gulp.task('clean', function(done) {
-    return del(['dist/*'], done);
+gulp.task('clean', function() {
+    del(['dist/css/*']);
+    del(['dist/js/*']);
+    del(['dist/*']);
 });
 
 // Browserify task.
 gulp.task('browserify', function() {
-    gulp.src('src/js/main.js')
+    gulp.src('app/js/main.js')
         .pipe(browserify({transform: 'reactify'}))
         .pipe(concat('main.js'))
         .pipe(uglify())
@@ -23,8 +25,10 @@ gulp.task('browserify', function() {
 
 // Copy task to get other files into dist.
 gulp.task('copy', function() {
-    gulp.src('src/index.html')
+    gulp.src('app/index.html')
         .pipe(gulp.dest('dist'));
+    gulp.src('app/css/*')
+        .pipe(gulp.dest('dist/css'));
 });
 
 // Define default task.
@@ -32,5 +36,5 @@ gulp.task('default', ['clean', 'browserify', 'copy']);
 
 // Define the watch task.
 gulp.task('watch', function() {
-    gulp.watch('src/**/*.*', ['default']);
+    gulp.watch('app/*', ['default']);
 });

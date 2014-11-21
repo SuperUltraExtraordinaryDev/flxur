@@ -42,7 +42,7 @@ var Cart = React.createClass({
                     <td>${subtotal}</td>
                 </tr>
             );
-        })
+        });
         return (
             <table className="table table-hover">
                 <thead>
@@ -66,6 +66,6 @@ var Cart = React.createClass({
             </table>
         );
     }
-})
+});
 
 module.exports = Cart;
