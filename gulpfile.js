@@ -17,9 +17,11 @@ gulp.task('clean', function() {
 // Browserify task.
 gulp.task('browserify', function() {
     gulp.src('app/js/main.js')
-        .pipe(browserify({transform: 'reactify'}))
+        .pipe(browserify({
+            transform: 'reactify',
+        }))
         .pipe(concat('main.js'))
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(gulp.dest('dist/js'));
 });
 
@@ -36,5 +38,5 @@ gulp.task('default', ['clean', 'browserify', 'copy']);
 
 // Define the watch task.
 gulp.task('watch', function() {
-    gulp.watch('app/*', ['default']);
+    gulp.watch('app/**', ['default']);
 });

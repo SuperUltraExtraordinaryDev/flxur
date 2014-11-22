@@ -2,6 +2,7 @@ var assign = require('object-assign');
 var Constants = require('../constants/constants.js');
 var Dispatcher = require('../dispatcher/dispatcher.js');
 var EventEmitter = require('events').EventEmitter;
+var http = require('http');
 
 /**
  * Don't have a database set up yet ... so here we go.
@@ -11,7 +12,13 @@ var _catalog = [
     {id: 2, title: 'Widget #2', cost: 2},
     {id: 3, title: 'Widget #3', cost: 3}
 ];
-// var _catalog = Catalog.CatalogItem.find();
+
+console.log(http);
+http.get('/api/v1/catalog', function(res) {
+    console.log("Got response: " + res.statusCode);
+}).on('error', function(e) {
+    console.log("Got error: " + e.message);
+});
 
 /**
  * An array of all items currently in the cart.

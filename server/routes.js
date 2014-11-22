@@ -16,7 +16,7 @@ module.exports = function(app) {
             if (err) res.send(err);
 
             // Return all catalog items.
-            res.json(catalogItems);
+            return res.json(catalogItems);
         });
     });
 
@@ -32,6 +32,6 @@ module.exports = function(app) {
      * Route all non API requests to frontend.
      */
     app.get('*', function(req, res) {
-        res.sendfile('../dist/index.html');
+        res.sendFile('index.html', {root: __dirname + '/../dist/'});
     });
 };
