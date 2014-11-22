@@ -1,3 +1,7 @@
+'use strict';
+/**
+ * Catalog datastore interface.
+ */
 var assign = require('object-assign');
 var Constants = require('../constants/constants.js');
 var Dispatcher = require('../dispatcher/dispatcher.js');
@@ -5,15 +9,10 @@ var EventEmitter = require('events').EventEmitter;
 var http = require('http');
 
 /**
- * Stores encapsulate API functionality and register callbacks with the
- * dispatcher. The callback will receive a payload from the dispatcher and
- * execute based upon the payload.
- *
- * Components register callbacks with stores as emissions listeners. When an
- * emission is generated, component callbacks will be invoked.
+ * The catalog datastore interface.
  */
 var Store = assign(new EventEmitter(), {
-    CHANGE_EVENT: 'BASE_CHANGE_EVENT',
+    CHANGE_EVENT: 'CATALOG_CHANGE_EVENT',
 
     /**
      * Emit the CHANGE_EVENT which will trigger any component callbacks
@@ -40,18 +39,27 @@ var Store = assign(new EventEmitter(), {
     },
 
     /**
-     * Register a callback with the dispatcher which will receive a payload
-     * from the dispatcher. The callback will execute according to the payload.
-     * The dispatcher's register method will return the index of the callback in
-     * the dispatcher's list of callbacks.
+     * Get catalog items.
+     */
+    getCatalog: function() {
+        http.get('/api/v1/catalog', function(res) {
+            res.on('data', function(data) {
+                Store.emitChange(JSON.parse(data));
+            });
+
+            res.on('error', function(error) {
+                console.log(error);
+            });
+        });
+    },
+
+    /**
+     * Register with the dispatcher to handle catalog related actions.
      */
     dispatcherIndex: Dispatcher.register(function(payload) {
         var action = payload.action;
         switch(action.actionType) {
-            /**
-             * Register cases above to perform needed actions based on the action
-             * received. Don't forget to call ``Store.emitChange`` when needed.
-             */
+
             default:
                 break;
         }

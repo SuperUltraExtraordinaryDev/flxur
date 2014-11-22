@@ -18,6 +18,8 @@ module.exports = function(app) {
                 if (err) res.send(err);
 
                 // Return all catalog items.
+                console.log('Data fetched via mongoose:');
+                console.log(catalogItems);
                 res.json(catalogItems);
             });
         });

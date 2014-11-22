@@ -1,15 +1,15 @@
 /** @jsx React.DOM */
 var React = require('react');
-var Store = require('../stores/store.js');
+var CartStore = require('../stores/cart-store.js');
 var RemoveFromCart = require('./removefromcart.js');
 var Increase = require('./increase.js');
 var Decrease = require('./decrease.js');
 
 /**
- * A wrapper around the Store.getCart method to serialize the data as needed.
+ * A wrapper around the CartStore.getCart method to serialize the data as needed.
  */
 function cartItems() {
-    return {items: Store.getCart()};
+    return {items: CartStore.getCart()};
 }
 
 /**
@@ -20,12 +20,13 @@ var Cart = React.createClass({
         return cartItems();
     },
     componentWillMount: function() {
-        Store.addChangeListener(this._onChange);
+        CartStore.addChangeListener(this._onChange);
     },
     _onChange: function() {
         this.setState(cartItems());
     },
     render: function() {
+        console.log('Attempting to render cart.');
         var total = 0;
         var items = this.state.items.map(function(item, index) {
             var subtotal = item.cost * item.qty;
