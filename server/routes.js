@@ -3,22 +3,24 @@
  * Server routes.
  * Handle things like API calls and authentication. Route all other requests to frontend.
  */
+var express = require('express');
+var router = express.Router();
 var Catalog = require('./models/catalog');
 
 module.exports = function(app) {
-
     /**
      * Return all catalog items.
      */
-    app.get('/api/v1/catalog', function(req, res) {
-        Catalog.CatalogItem.find({}, function(err, catalogItems) {
-            // Send error if one occured.
-            if (err) res.send(err);
+    router.route('/v1/catalog')
+        .get(function(req, res) {
+            Catalog.CatalogItem.find({}, function(err, catalogItems) {
+                // Send error if one occured.
+                if (err) res.send(err);
 
-            // Return all catalog items.
-            return res.json(catalogItems);
+                // Return all catalog items.
+                res.json(catalogItems);
+            });
         });
-    });
 
     /**
      * TODO(TheDodd): add route for create.
@@ -28,10 +30,5 @@ module.exports = function(app) {
      * TODO(TheDodd): add route for delete.
      */
 
-    /**
-     * Route all non API requests to frontend.
-     */
-    app.get('*', function(req, res) {
-        res.sendFile('index.html', {root: __dirname + '/../dist/'});
-    });
+    app.use('/api', router);
 };

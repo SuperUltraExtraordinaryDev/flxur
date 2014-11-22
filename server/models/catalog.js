@@ -2,18 +2,16 @@
 /**
  * Catalog models.
  */
-var config = require('../config/' + (process.env.config || 'dev'));
 var mongoose = require('mongoose');
-mongoose.createConnection(config.mongodb_url);
 
 /**
  * Schema and model for catalog items.
  */
-var CatalogItemSchema = {
+var CatalogItemSchema = new mongoose.Schema({
     title: String,
     cost: Number
-};
-var CatalogItem = mongoose.model('catalog', CatalogItemSchema);
+}, {collection: 'catalog'});
+var CatalogItem = mongoose.model('CatalogItem', CatalogItemSchema);
 
 module.exports = {
     CatalogItem: CatalogItem
