@@ -21,7 +21,7 @@ gulp.task('browserify', function() {
             transform: 'reactify',
         }))
         .pipe(concat('main.js'))
-        // .pipe(uglify())
+        .pipe(uglify())
         .pipe(gulp.dest('dist/js'));
 });
 
