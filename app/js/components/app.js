@@ -8,7 +8,7 @@ var App = React.createClass({
     render: function() {
         return (
             <div>
-                <h1>Lets Shop</h1>
+                <h1>Catalog</h1>
                 <Catalog/>
                 <h1>Cart</h1>
                 <Cart/>

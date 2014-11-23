@@ -26,29 +26,27 @@ var Cart = React.createClass({
         this.setState(cartItems());
     },
     render: function() {
-        console.log('Attempting to render cart.');
         var total = 0;
         var items = this.state.items.map(function(item, index) {
             var subtotal = item.cost * item.qty;
             total += subtotal;
             return (
                 <tr key={index}>
-                    <td><RemoveFromCart index={index}/></td>
                     <td>{item.title}</td>
                     <td>{item.qty}</td>
                     <td>
                         <Increase index={index}/>
                         <Decrease index={index}/>
+                        <RemoveFromCart index={index}/>
                     </td>
                     <td>${subtotal}</td>
                 </tr>
             );
         });
         return (
-            <table className="table table-hover table-striped">
+            <table className="table table-bordered table-condensed table-hover table-responsive table-striped">
                 <thead>
                     <tr>
-                        <th></th>
                         <th>Item</th>
                         <th>Qty</th>
                         <th></th>
@@ -60,7 +58,7 @@ var Cart = React.createClass({
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colSpan="4" className="text-right">Total</td>
+                        <td colSpan="3" className="text-right">Total</td>
                         <td>${total}</td>
                     </tr>
                 </tfoot>

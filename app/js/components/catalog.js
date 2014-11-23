@@ -35,7 +35,7 @@ var Catalog = React.createClass({
             );
         });
         return (
-            <table className="table table-hover table-striped">
+            <table className="table table-condensed table-hover table-responsive table-striped">
                 <tbody>
                     {items}
                 </tbody>

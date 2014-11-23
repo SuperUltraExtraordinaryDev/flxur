@@ -51,7 +51,7 @@ function _addItem(item) {
     }
     else {
         _cartItems.forEach(function(cartItem, index) {
-            if (cartItem.id === item.id) {
+            if (cartItem._id === item._id) {
                 _increaseItem(index);
             }
         });
