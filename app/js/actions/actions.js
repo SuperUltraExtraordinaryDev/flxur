@@ -1,3 +1,7 @@
+'use strict';
+/**
+ * Application actions.
+ */
 var Constants = require('../constants/constants.js');
 var Dispatcher = require('../dispatcher/dispatcher.js');
 

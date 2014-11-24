@@ -1,3 +1,4 @@
+'use strict';
 /**
  * Development server configuration.
  */

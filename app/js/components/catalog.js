@@ -1,4 +1,8 @@
 /** @jsx React.DOM */
+'use strict';
+/**
+ * The catalog component.
+ */
 var React = require('react');
 var CatalogStore = require('../stores/catalog-store.js');
 var AddToCart = require('./addtocart.js');

@@ -56,6 +56,6 @@ gulp.task('load-dev-db', function(callback) {
     new Catalog.CatalogItem({title: 'Rockin’ Item', cost: 3}).save();
     new Catalog.CatalogItem({title: 'Uber Item', cost: 4}).save();
 
-    mongoose.connection.close()
+    mongoose.connection.close();
     callback(null);
 });

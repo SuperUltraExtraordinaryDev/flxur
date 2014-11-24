@@ -1,4 +1,8 @@
 /** @jsx React.DOM */
+'use strict';
+/**
+ * A component for adding items to a user's cart.
+ */
 var React = require('react');
 var Actions = require('../actions/actions.js');
 

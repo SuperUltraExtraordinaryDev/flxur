@@ -1,4 +1,7 @@
-/** @jsx React.DOM */
+'use strict';
+/**
+ * The application dispatcher.
+ */
 var FluxDispatcher = require('flux').Dispatcher;
 var assign = require('object-assign');
 

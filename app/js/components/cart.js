@@ -1,4 +1,8 @@
 /** @jsx React.DOM */
+'use strict';
+/**
+ * The cart component.
+ */
 var React = require('react');
 var CartStore = require('../stores/cart-store.js');
 var RemoveFromCart = require('./removefromcart.js');

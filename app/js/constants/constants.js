@@ -1,3 +1,7 @@
+'use strict';
+/**
+ * Application constants.
+ */
 module.exports = {
     /**
      * Action related constants.

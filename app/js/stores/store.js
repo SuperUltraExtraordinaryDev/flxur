@@ -1,3 +1,9 @@
+'use strict';
+/**
+ * A template store module.
+ *
+ * *NOTE:* This is not actually being used currently.
+ */
 var assign = require('object-assign');
 var Constants = require('../constants/constants.js');
 var Dispatcher = require('../dispatcher/dispatcher.js');
@@ -26,7 +32,7 @@ var Store = assign(new EventEmitter(), {
     },
 
     /**
-     * Register a callback to be invoked upon CHANGE_EVENT emmisions.
+     * Register a callback to be invoked upon CHANGE_EVENT emissions.
      */
     addChangeListener: function(callback) {
         this.on(Store.CHANGE_EVENT, callback);

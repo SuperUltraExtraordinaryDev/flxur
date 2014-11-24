@@ -9,6 +9,11 @@ var objectid = require('objectid');
 
 module.exports = function(app) {
     /**
+     * Register everything on this router under '/api'.
+     */
+    app.use('/api', router);
+
+    /**
      * ID parameter handler.
      */
     router.param('resourceId', function(req, res, next, id) {
@@ -29,7 +34,7 @@ module.exports = function(app) {
          */
         .get(function(req, res) {
             Catalog.CatalogItem.find({}, function(err, catalogItems) {
-                // Send error if one occured.
+                // Send error if one occurred.
                 if (err) res.send(err);
 
                 // Return all catalog items.
@@ -58,6 +63,4 @@ module.exports = function(app) {
                 res.status(200).send('OK');
             });
         });
-
-    app.use('/api', router);
 };

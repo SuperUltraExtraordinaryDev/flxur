@@ -1,4 +1,8 @@
 /** @jsx React.DOM */
+'use strict';
+/**
+ * The application component. This is the top-level component.
+ */
 var React = require('react');
 var Catalog = require('../components/catalog.js');
 var Cart = require('../components/cart.js');

@@ -75,7 +75,7 @@ var Store = assign(new EventEmitter(), {
     },
 
     /**
-     * Register a callback to be invoked upon CHANGE_EVENT emmisions.
+     * Register a callback to be invoked upon CHANGE_EVENT emissions.
      */
     addChangeListener: function(callback) {
         this.on(Store.CHANGE_EVENT, callback);
