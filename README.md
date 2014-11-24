@@ -1,6 +1,6 @@
 fluxr
 =====
-An application template for applications using a **Node + Express + React + MongoDB** stack and a **Flux architecture**. A MENR (mean•er) stack.
+An application template for applications using a **Node + Express + React + MongoDB** stack and a **Flux architecture**. A MENR (*mean•er*) stack.
 
 ## start
 To start the server, invoke ``npm start`` with whichever configuration you wish to use. E.G.:
