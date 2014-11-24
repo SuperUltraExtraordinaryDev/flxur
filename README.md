@@ -16,4 +16,4 @@ To start the server, invoke ``npm start`` with whichever configuration you wish 
 Invoke ``gulp watch`` after starting the server to have your changes compiled as you work.
 
 ## testing
-This pretty much goes without saying — invoke the test suite with ``npm test``. Using Jest.
+This pretty much goes without saying — invoke the test suite with ``npm test``. Using the Jest testing framework.
