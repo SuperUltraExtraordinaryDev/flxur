@@ -7,10 +7,10 @@ To start the server, invoke ``npm start`` with whichever configuration you wish 
 
     # Start with explicit 'dev' configuration.
     # Will default to 'dev' configuration if not specified.
-    CONF=dev npm start
+    config=dev npm start
 
     # Start with 'prod' configuration.
-    CONF=prod npm start
+    config=prod npm start
 
 ## hacking
 Invoke ``gulp watch`` after starting the server to have your changes compiled as you work.
