@@ -44,7 +44,7 @@
     "reactify": "0.16.0"
   },
   "jest": {
-    "scriptPreprocessor": "./test-config/preprocessor.js",
+    "scriptPreprocessor": "./preprocessor.js",
     "unmockedModulePathPatterns": [
       "./node_modules/react"
     ]
