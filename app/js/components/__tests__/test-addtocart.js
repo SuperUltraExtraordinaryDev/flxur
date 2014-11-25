@@ -3,7 +3,7 @@
  * Tests for app/js/components/addtocart.js.
  */
 
-describe('addtocart', function() {
+describe('AddToCart', function() {
     it('is a <button/> with text "Add to Cart" and onClick listener', function() {
         jest.dontMock('../addtocart.js');
         var React = require('react/addons');
