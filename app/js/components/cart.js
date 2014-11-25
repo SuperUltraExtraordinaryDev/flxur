@@ -10,24 +10,17 @@ var Increase = require('./increase.js');
 var Decrease = require('./decrease.js');
 
 /**
- * A wrapper around the CartStore.getCart method to serialize the data as needed.
- */
-function cartItems() {
-    return {items: CartStore.getCart()};
-}
-
-/**
  * Shopping cart component.
  */
 var Cart = React.createClass({
     getInitialState: function() {
-        return cartItems();
+        return {items: CartStore.getCart()};
     },
     componentWillMount: function() {
         CartStore.addChangeListener(this._onChange);
     },
     _onChange: function() {
-        this.setState(cartItems());
+        this.setState(CartStore.getCart());
     },
     render: function() {
         var total = 0;

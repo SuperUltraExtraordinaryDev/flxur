@@ -8,13 +8,6 @@ var CatalogStore = require('../stores/catalog-store.js');
 var AddToCart = require('./addtocart.js');
 
 /**
- * A wrapper function to serialize data as needed.
- */
-// function getCatalog() {
-//     return {items: CatalogStore.getCatalog()};
-// }
-
-/**
  * Catalog component.
  */
 var Catalog = React.createClass({
@@ -31,7 +24,7 @@ var Catalog = React.createClass({
     render: function() {
         var items = this.state.items.map(function(item) {
             return (
-                <tr key={'catalog-item-' + item._id}>
+                <tr key={item._id}>
                     <td>{item.title}</td>
                     <td>{item.cost}</td>
                     <td><AddToCart item={item}/></td>
