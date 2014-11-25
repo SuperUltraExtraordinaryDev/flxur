@@ -5,38 +5,14 @@
 var assign = require('object-assign');
 var Constants = require('../constants/constants.js');
 var Dispatcher = require('../dispatcher/dispatcher.js');
-var EventEmitter = require('events').EventEmitter;
+var BaseStore = require('./store.js');
 var http = require('http');
 
 /**
  * The catalog datastore interface.
  */
-var Store = assign(new EventEmitter(), {
+var Store = assign(new BaseStore(), {
     CHANGE_EVENT: 'CATALOG_CHANGE_EVENT',
-
-    /**
-     * Emit the CHANGE_EVENT which will trigger any component callbacks
-     * registered with this store. Pass along any additional arguments
-     * provided to this method as arguments to the callbacks.
-     */
-    emitChange: function() {
-        var args = [Store.CHANGE_EVENT, arguments[0]];
-        this.emit.apply(this, args);
-    },
-
-    /**
-     * Register a callback to be invoked upon CHANGE_EVENT emissions.
-     */
-    addChangeListener: function(callback) {
-        this.on(Store.CHANGE_EVENT, callback);
-    },
-
-    /**
-     * Remove a callback.
-     */
-    removeChangeListener: function(callback) {
-        this.removeListener(Store.CHANGE_EVENT, callback);
-    },
 
     /**
      * Get catalog items.

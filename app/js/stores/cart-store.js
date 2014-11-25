@@ -5,7 +5,7 @@
 var assign = require('object-assign');
 var Constants = require('../constants/constants.js');
 var Dispatcher = require('../dispatcher/dispatcher.js');
-var EventEmitter = require('events').EventEmitter;
+var BaseStore = require('./store.js');
 var http = require('http');
 
 /**
@@ -61,32 +61,8 @@ function _addItem(item) {
 /**
  * The cart datastore interface.
  */
-var Store = assign(new EventEmitter(), {
+var Store = assign(new BaseStore(), {
     CHANGE_EVENT: 'CART_CHANGE_EVENT',
-
-    /**
-     * Emit the CHANGE_EVENT which will trigger any component callbacks
-     * registered with this store. Pass along any additional arguments
-     * provided to this method as arguments to the callbacks.
-     */
-    emitChange: function() {
-        var args = [Store.CHANGE_EVENT, arguments[0]];
-        this.emit.apply(this, args);
-    },
-
-    /**
-     * Register a callback to be invoked upon CHANGE_EVENT emissions.
-     */
-    addChangeListener: function(callback) {
-        this.on(Store.CHANGE_EVENT, callback);
-    },
-
-    /**
-     * Remove a callback.
-     */
-    removeChangeListener: function(callback) {
-        this.removeListener(Store.CHANGE_EVENT, callback);
-    },
 
     /**
      * Get items in cart. This would typically fetch data from a database.

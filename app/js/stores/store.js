@@ -1,14 +1,10 @@
 'use strict';
 /**
  * A template store module.
- *
- * *NOTE:* This is not actually being used currently.
  */
 var assign = require('object-assign');
 var Constants = require('../constants/constants.js');
-var Dispatcher = require('../dispatcher/dispatcher.js');
 var EventEmitter = require('events').EventEmitter;
-var http = require('http');
 
 /**
  * Stores encapsulate API functionality and register callbacks with the
@@ -17,8 +13,13 @@ var http = require('http');
  *
  * Components register callbacks with stores as emissions listeners. When an
  * emission is generated, component callbacks will be invoked.
+ *
+ * Should create a new Store subclass for every different type of change event
+ * to be subscribed to. Something like:
+ * ``var NewStore = assign(new Store(), {...}``.
  */
-var Store = assign(new EventEmitter(), {
+function Store() {}
+Store.prototype = assign(new EventEmitter(), {
     CHANGE_EVENT: 'BASE_CHANGE_EVENT',
 
     /**
@@ -27,7 +28,7 @@ var Store = assign(new EventEmitter(), {
      * provided to this method as arguments to the callbacks.
      */
     emitChange: function() {
-        var args = [Store.CHANGE_EVENT, arguments[0]];
+        var args = [this.CHANGE_EVENT, arguments[0]];
         this.emit.apply(this, args);
     },
 
@@ -35,14 +36,14 @@ var Store = assign(new EventEmitter(), {
      * Register a callback to be invoked upon CHANGE_EVENT emissions.
      */
     addChangeListener: function(callback) {
-        this.on(Store.CHANGE_EVENT, callback);
+        this.on(this.CHANGE_EVENT, callback);
     },
 
     /**
      * Remove a callback.
      */
     removeChangeListener: function(callback) {
-        this.removeListener(Store.CHANGE_EVENT, callback);
+        this.removeListener(this.CHANGE_EVENT, callback);
     },
 
     /**
@@ -50,19 +51,9 @@ var Store = assign(new EventEmitter(), {
      * from the dispatcher. The callback will execute according to the payload.
      * The dispatcher's register method will return the index of the callback in
      * the dispatcher's list of callbacks.
+     * Should look something like: ``Dispatcher.register(function(payload) {...}``.
      */
-    dispatcherIndex: Dispatcher.register(function(payload) {
-        var action = payload.action;
-        switch(action.actionType) {
-            /**
-             * Register cases above to perform needed actions based on the action
-             * received. Don't forget to call ``Store.emitChange`` when needed.
-             */
-            default:
-                break;
-        }
-        return true;
-    })
+    dispatcherIndex: null
 });
 
 module.exports = Store;
