@@ -46,7 +46,7 @@ gulp.task('watch', function() {
 });
 
 // Define load-dev-db task.
-gulp.task('load-dev-db', function(callback) {
+gulp.task('primedb', function(callback) {
     // Configure MongoDB connections.
     mongoose.connect(config.mongodb_url);
 
