@@ -22,7 +22,7 @@ gulp.task('clean', function() {
 gulp.task('browserify', function() {
     gulp.src('app/js/main.js')
         .pipe(browserify({
-            transform: 'reactify',
+            transform: 'reactify'
         }))
         .pipe(concat('main.js'))
         .pipe(uglify())

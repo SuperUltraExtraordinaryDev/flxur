@@ -23,6 +23,7 @@ var Cart = React.createClass({
         this.setState(CartStore.getCart());
     },
     render: function() {
+        // TODO(TheDodd): need tests for this subroutine and tbody.
         var total = 0;
         var items = this.state.items.map(function(item, index) {
             var subtotal = item.cost * item.qty;
