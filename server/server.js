@@ -2,11 +2,16 @@
 /**
  * Express server.
  */
+// Server configuration.
 var mode = process.env.config || 'dev';
 var config = require('./config/' + mode);
-var routes = require('./routes');
-var mongoose = require('mongoose');
 
+// Server API version.
+var version = process.env.version || 'v1';
+var versions = {v1: 'v1'};
+var routes = require('./routers/' + (version in versions ? version : versions.v1));
+
+var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var express = require('express');
