@@ -115,6 +115,59 @@ describe('Cart', function() {
 });
 
 /**
+ * Tests for Cart.tbody children.
+ */
+describe('Cart', function() {
+    it('has a <tbody> with expected children and cost from cart', function() {
+        jest.dontMock('../cart.js');
+        jest.dontMock('../increase.js');
+        jest.dontMock('../decrease.js');
+        jest.dontMock('../removefromcart.js');
+        var React = require('react/addons');
+        var Actions = require('../../actions/actions.js');
+        var Cart = require('../cart.js');
+        var TestUtils = React.addons.TestUtils;
+        var item = {title: 'TestItem', qty: 1, cost: 5};
+
+
+        // Get mocked store to return needed values.
+        var CartStore = require('../../stores/cart-store.js');
+        CartStore.getCart.mockReturnValue([item]);
+
+        // Render component and get needed nodes for asserts.
+        var dom = TestUtils.renderIntoDocument(<Cart/>);
+        var component = TestUtils.findRenderedComponentWithType(dom, Cart).getDOMNode();
+        var tbody = component.firstChild.nextSibling;
+        var calculatedTotal = tbody.nextSibling.firstChild.lastChild.textContent;
+
+        // Get cart item and children for asserts.
+        var cartItem = tbody.firstChild,
+            cartItemTitle = cartItem.firstChild,
+            cartItemQty = cartItem.firstChild.nextSibling,
+            cartItemControls = cartItem.firstChild.nextSibling.nextSibling.children,
+            cartItemSubtotal = cartItem.lastChild;
+
+        // Assert nodes are as expected.
+        expect(calculatedTotal).toEqual('$5');
+        expect(cartItem.tagName).toEqual('TR');
+
+        expect(cartItemTitle.tagName).toEqual('TD');
+        expect(cartItemTitle.textContent).toEqual('TestItem');
+
+        expect(cartItemQty.tagName).toEqual('TD');
+        expect(cartItemQty.textContent).toEqual('1');
+
+        expect(cartItemSubtotal.tagName).toEqual('TD');
+        expect(cartItemSubtotal.textContent).toEqual('$5');
+
+        expect(cartItemControls.length).toEqual(3);
+        expect(cartItemControls[0].nodeName).toEqual('BUTTON');
+        expect(cartItemControls[1].nodeName).toEqual('BUTTON');
+        expect(cartItemControls[2].nodeName).toEqual('BUTTON');
+    });
+});
+
+/**
  * Tests for Cart.tfoot children.
  */
 describe('Cart', function() {

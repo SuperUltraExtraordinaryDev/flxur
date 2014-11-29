@@ -1,0 +1,12 @@
+{
+  "globalstrict": true,
+  "indent": 4,
+  "jasmine": true,
+  "maxlen": 149,
+  "node": true,
+  "predef": [
+    "document",
+    "jest"
+  ],
+  "strict": true
+}
