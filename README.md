@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/TheDodd/fluxr.svg?branch=master)](https://travis-ci.org/TheDodd/fluxr)
+
 fluxr
 =====
 An application template for applications using a **Node + Express + React + MongoDB** stack and a **Flux architecture**. A MENR (*mean·er*) stack.
