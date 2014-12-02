@@ -19,3 +19,8 @@ Invoke ``gulp watch`` after starting the server to have your changes compiled as
 
 ## testing
 This pretty much goes without saying — invoke the test suite with ``npm test``. Currently using the Jest testing framework.
+
+## building
+Currently using the ``slc`` toolchain for building this app. Just invoke ``npm run buildpkg`` to build all dependencies and generate a ``<package>-<version>.tgz`` in this repository's parent directory. If you run into any craziness with the build command, just ``rm -rf`` the ``node_modules`` and try again.
+
+The build process prunes all dev dependencies before the package is archived. This means that you will have to install the dev dependencies again after running ``buildpkg``.

@@ -1,7 +1,7 @@
 {
   "name": "fluxr",
-  "version": "0.4.0",
-  "description": "Node + Express + React + Flux + MongoDB application template.",
+  "version": "0.5.0",
+  "description": "An application template for applications using a Node + Express + React + MongoDB stack with Flux architecture.",
   "author": "Anthony Dodd",
   "license": "MIT",
   "private": true,
@@ -19,10 +19,11 @@
   ],
   "main": "src/js/main.js",
   "scripts": {
-    "start": "gulp default && nodemon server/server.js",
     "build": "gulp default",
-    "watch": "gulp watch",
-    "test": "jsxhint app server && jest"
+    "buildpkg": "slc build --install --scripts --bundle --pack",
+    "start": "gulp default && nodemon server/server.js",
+    "test": "jsxhint app server && jest",
+    "watch": "gulp watch"
   },
   "dependencies": {
     "body-parser": "1.9.3",
