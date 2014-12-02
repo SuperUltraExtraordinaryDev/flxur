@@ -2,13 +2,15 @@
 /**
  * Gulp tasks.
  */
-var browserify = require('gulp-browserify');
+var browserify = require('browserify');
 var Catalog = require('./server/models/catalog');
-var concat = require('gulp-concat');
 var config = require('./server/config/dev');
 var del = require('del');
 var gulp = require('gulp');
 var mongoose = require('mongoose');
+var reactify = require('reactify');
+var streamify = require('gulp-streamify');
+var source = require('vinyl-source-stream');
 var uglify = require('gulp-uglify');
 
 // Define 'clean' task.
@@ -20,12 +22,12 @@ gulp.task('clean', function() {
 
 // Browserify task.
 gulp.task('browserify', function() {
-    gulp.src('app/js/main.js')
-        .pipe(browserify({
-            transform: 'reactify'
-        }))
-        .pipe(concat('main.js'))
-        .pipe(uglify())
+    var mainjs = __dirname + '/app/js/main.js';
+    browserify(mainjs)
+        .transform(reactify)
+        .bundle()
+        .pipe(source('main.js'))
+        .pipe(streamify(uglify('main.js')))
         .pipe(gulp.dest('dist/js'));
 });
 
