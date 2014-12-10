@@ -20,7 +20,8 @@
   "main": "src/js/main.js",
   "scripts": {
     "build": "gulp default",
-    "buildpkg": "slc build --install --scripts --bundle --pack",
+    "buildpkg": "slc build --install --scripts --bundle --pack && npm install",
+    "primedb": "gulp primedb",
     "start": "gulp default && nodemon server/server.js",
     "test": "jsxhint app server && jest",
     "watch": "gulp watch"

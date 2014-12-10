@@ -35,7 +35,7 @@ app.use(express.static(__dirname + '/../dist/'));
 
 // Route all non API requests to frontend.
 app.get('*', function(req, res) {
-    res.sendFile('index.html');
+    res.sendFile('index.html', {root: __dirname + '/../dist/'});
 });
 
 // Listen for requests.
