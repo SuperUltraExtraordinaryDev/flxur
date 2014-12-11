@@ -47,6 +47,7 @@
     "nodemon": "^1.2.1",
     "react-tools": "^0.12.1",
     "reactify": "^0.17.1",
+    "strongloop": "^2.9.3",
     "vinyl-source-stream": "^1.0.0"
   },
   "jest": {
