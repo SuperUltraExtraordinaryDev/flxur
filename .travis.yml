@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - 0.10
 before_deploy:
-  - "npm buildpkg"
+  - "npm run buildpkg"
   - "mkdir build"
   - "mv ../fluxr-* ./build"
 deploy:
