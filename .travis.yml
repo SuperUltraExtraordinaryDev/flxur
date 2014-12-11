@@ -15,6 +15,6 @@ deploy:
   skip_cleanup: true
   username: thedodd
   on:
-    branch: master
+    all_branches: true
     tags: true
     repo: TheDodd/fluxr
