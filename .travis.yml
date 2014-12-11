@@ -1,3 +1,13 @@
 language: node_js
 node_js:
-  - 0.10
+  - 0.1
+deploy:
+  provider: cloudfiles
+  username: thedodd
+  api_key:
+    secure: NPyCFns/At8eWVTV2tDO/KqOxb+PhRmIFBtqSku6wapg4wxB5B8Rmdh2sUcrAAyjeCspYhN4Jc3CThMDWm95zoMku3qT/8fCKswdij4V4JnUNMW8BqmWalna58h/M/LOJ4eRo31bUkYY77EuASMHOUmAZqH+kSiaOa6sex1TGLA=
+  region: SYD
+  container: fluxr
+  on:
+    tags: true
+    repo: TheDodd/fluxr
